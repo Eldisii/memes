@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shfaq IP-në</title>
+</head>
+<body>
+  <h2>IP-ja jote eshte:</h2>
+  <div id="ip"></div>
+
+  <script>
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('ip').innerText = data.ip;
+      })
+      .catch(() => {
+        document.getElementById('ip').innerText = 'Nuk mund te merret IP-ja.';
+      });
+  </script>
+</body>
+</html>
